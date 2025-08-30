@@ -1,3 +1,9 @@
 from django.contrib import admin
+from blog.models import Post
+from guardian.admin import GuardedModelAdmin
 
-# Register your models here.
+
+class PostAdmin(GuardedModelAdmin):
+    list_display = ('name',) 
+
+admin.site.register(Post, PostAdmin)
